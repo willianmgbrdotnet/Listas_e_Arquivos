@@ -1,0 +1,13 @@
+acucar 
+carne 
+laranja 
+pao.integral 
+pera 
+picles 
+suco 
+suco.de.laranja 
+leite 
+limao 
+ovos 
+alcool 
+pano.de.prato 

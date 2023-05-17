@@ -1,0 +1,15 @@
+C:\c#\listaCrud\Listas_e_Arquivos\bin\Debug\net7.0\Listas_e_Arquivos.exe
+C:\c#\listaCrud\Listas_e_Arquivos\bin\Debug\net7.0\Listas_e_Arquivos.deps.json
+C:\c#\listaCrud\Listas_e_Arquivos\bin\Debug\net7.0\Listas_e_Arquivos.runtimeconfig.json
+C:\c#\listaCrud\Listas_e_Arquivos\bin\Debug\net7.0\Listas_e_Arquivos.dll
+C:\c#\listaCrud\Listas_e_Arquivos\bin\Debug\net7.0\Listas_e_Arquivos.pdb
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.csproj.AssemblyReference.cache
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.GeneratedMSBuildEditorConfig.editorconfig
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.AssemblyInfoInputs.cache
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.AssemblyInfo.cs
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.csproj.CoreCompileInputs.cache
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.dll
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\refint\Listas_e_Arquivos.dll
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.pdb
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\Listas_e_Arquivos.genruntimeconfig.cache
+C:\c#\listaCrud\Listas_e_Arquivos\obj\Debug\net7.0\ref\Listas_e_Arquivos.dll
