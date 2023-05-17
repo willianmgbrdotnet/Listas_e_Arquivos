@@ -14,7 +14,7 @@ class ComprasNoSupermercado
         switch(opcaoDoUsuario)
         {
           case 1:
-            //MostrarLista();
+            MostrarLista();
             break;
           case 2:
             AdicionarItensNaLista();
@@ -36,25 +36,63 @@ class ComprasNoSupermercado
         opcaoDoUsuario = ObterOpcaoDoUsuario();        
       }
 
-      System.Console.WriteLine("Estarei aqui caso você lembre de mais alguma coisa");
+      Console.WriteLine("Estarei aqui caso você lembre de mais alguma coisa!");
+    }
+
+    private static void MostrarLista()
+    {
+      //variavel que armazenará o conteúdo lido do arquivo
+      List<string> conteudoDoArquivo = new List<string>();
+      using (StreamReader reader = new StreamReader("lista_de_compras.txt"))
+      {
+        string item;
+        while((item = reader.ReadLine()) != null)
+        {
+          conteudoDoArquivo.Add(item);
+        }
+      }
+      //Reescreverá o arquivo de acordo com os parâmetros abaixo
+      using (StreamWriter writer = new StreamWriter("lista_de_compras.txt"))
+      {
+        List<string> listaCompras = new List<string>();
+        //esta lista armazenará o intervalo de itens lidos pelo reader
+        listaCompras.AddRange(conteudoDoArquivo);
+        //Removerá itens duplicados lidos no arquivo        
+        listaCompras = listaCompras.Distinct().ToList();
+
+        listaCompras.Sort();
+
+        foreach(string item in listaCompras)
+        {
+
+          Console.WriteLine($"{item} ");
+          //escreverá um item por linha no arquivo
+          writer.WriteLine($"{item} ");
+
+        }
+
+      }
+
+
     }
 
     private static int ObterOpcaoDoUsuario()
     {
         Console.WriteLine();
         Console.WriteLine("Vamos às Compras!?");
+        Console.WriteLine();
         Console.WriteLine("Informe a Opção desejada.");
         Console.WriteLine();
-        Console.WriteLine("Digite 1 para mostrar a Lista de Compras");
-        Console.WriteLine("Digite 2 para adicionar um Item na Lista");
-        Console.WriteLine("Digite 3 para remover um Item da Lista");
+        Console.WriteLine("Digite 1 para Mostrar a Lista de Compras");
+        Console.WriteLine("Digite 2 para Adicionar um Item na Lista");
+        Console.WriteLine("Digite 3 para Remover um Item da Lista");
         Console.WriteLine("Digite 5 para Limpar a tela");
         Console.WriteLine("Digite 7 para APAGAR a Lista que Existe e CRIAR uma Nova Lista");
         Console.WriteLine("Digite 9 para Sair");
         Console.WriteLine();
 
         int opcaoDoUsuario = int.Parse(Console.ReadLine());
-        System.Console.WriteLine();
+        Console.WriteLine();
         return opcaoDoUsuario;
     }
 
