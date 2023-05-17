@@ -11,3 +11,5 @@ limao
 ovos 
 alcool 
 pano.de.prato 
+abacaxi 
+maca 
