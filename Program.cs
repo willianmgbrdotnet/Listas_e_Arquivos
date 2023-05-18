@@ -20,7 +20,7 @@ class ComprasNoSupermercado
             AdicionarItensNaLista();
             break;
           case 3:
-            //ExcluirItemDaLista();
+            ExcluirItemDaLista();
             break; 
           case 7:
             //SobrescreverListaExistente();
@@ -32,12 +32,64 @@ class ComprasNoSupermercado
           default:
             throw new ArgumentOutOfRangeException();
         }
-
         opcaoDoUsuario = ObterOpcaoDoUsuario();        
       }
-
       Console.WriteLine("Estarei aqui caso você lembre de mais alguma coisa!");
     }
+
+    private static void ExcluirItemDaLista()
+    {
+      //variavel que armazenará o conteúdo lido do arquivo
+      List<string> conteudoDoArquivo = new List<string>();
+      using (StreamReader reader = new StreamReader("lista_de_compras.txt"))
+      {
+        string item;
+        while((item = reader.ReadLine()) != null)
+        {
+          conteudoDoArquivo.Add(item);
+        }
+      }
+
+      // Mostra uma Lista Numerada de itens para o usuário
+    Console.WriteLine("Itens na Lista de Compras:");
+    for (int i = 0; i < conteudoDoArquivo.Count; i++)
+      {
+        //Como o Indice começa com o numero 0, acrescenta 1 para a lista começar a partir do numero 1
+        Console.WriteLine($"{i + 1}. {conteudoDoArquivo[i]}");
+      }
+
+      Console.WriteLine();    
+      // O usuário deverá digitar o numero correspondente ao Item
+      Console.WriteLine("Qual item você deseja retirar da Lista de Compra? ");
+      Console.WriteLine("Digite o número que está antes do Item.");
+      int indiceDoItem = int.Parse(Console.ReadLine()) - 1;
+    
+      // Verificar se o número do item contém na lista numerada
+      if (indiceDoItem >= 0 && indiceDoItem < conteudoDoArquivo.Count)
+      {
+        // Remover o item da lista
+        conteudoDoArquivo.RemoveAt(indiceDoItem);
+        Console.WriteLine("Item removido com sucesso!");
+      }
+      else
+      {
+        Console.WriteLine("Número de item inválido.");
+      }
+      Console.WriteLine();
+
+
+      //Reescreverá o arquivo de acordo com os parâmetros abaixo
+      using (StreamWriter writer = new StreamWriter("lista_de_compras.txt"))
+      {
+        foreach(string item in conteudoDoArquivo)
+        {
+          Console.WriteLine($"{item}");
+          //escreverá um item por linha no arquivo
+          writer.WriteLine($"{item}");
+        }
+      }
+    }
+
 
     private static void MostrarLista()
     {
@@ -64,16 +116,11 @@ class ComprasNoSupermercado
 
         foreach(string item in listaCompras)
         {
-
-          Console.WriteLine($"{item} ");
+          Console.WriteLine($"{item}");
           //escreverá um item por linha no arquivo
-          writer.WriteLine($"{item} ");
-
+          writer.WriteLine($"{item}");
         }
-
       }
-
-
     }
 
     private static int ObterOpcaoDoUsuario()
@@ -129,9 +176,7 @@ class ComprasNoSupermercado
                     Console.WriteLine($"{item} ");
                     writer.WriteLine($"{item} ");
                 }
-
             }
-
         }
     }
 }
