@@ -23,7 +23,8 @@ class ComprasNoSupermercado
             ExcluirItemDaLista();
             break; 
           case 7:
-            //SobrescreverListaExistente();
+            //APAGAR todos os Itens da Lista de Compras
+            SobrescreverListaExistente();
             break;
           case 5:
             Console.Clear();
@@ -35,6 +36,48 @@ class ComprasNoSupermercado
         opcaoDoUsuario = ObterOpcaoDoUsuario();        
       }
       Console.WriteLine("Estarei aqui caso você lembre de mais alguma coisa!");
+    }
+
+    private static void SobrescreverListaExistente()
+    {
+      Console.WriteLine("Este procedimento vai APAGAR a Lista de Compras inteira.");
+      Console.WriteLine("Tem certeza que você quer APAGAR toda a Lista de Compras ??");
+      Console.WriteLine();
+      Console.WriteLine("Aperte 7 para APAGAR Todos os Itens da Lista de Compra.");
+      Console.WriteLine("Se mudou de Idéia e quer voltar, aperte Outro Número. ");
+      Console.WriteLine();
+      int resposta = int.Parse(Console.ReadLine());
+      if(resposta == 7)
+      {
+        Console.WriteLine("Escreva a nova Lista de Compra separando cada Item com um ESPAÇO");
+        Console.WriteLine("Exemplo: carne suco.de.laranja pao.integral acucar");
+        Console.WriteLine("Aperte ENTER para finalizar a Lista de Compra");
+        Console.WriteLine();
+
+        //O "true" foi removido depois do nome do Arquivo para sobrescrever o arquivo
+        using (StreamWriter writer = new StreamWriter("lista_de_compras.txt"))
+        {
+          List<string> listDeCompras = new List<String>(Console.ReadLine().Split(' ')); //o espaço será usado como separador dos itens da lista
+
+          //Elimina a duplicidade de itens da lista
+          List<string> listaSemDuplicados = listDeCompras.Distinct().ToList();
+
+          //Agrupa os itens em ordem alfabetica (por padrão)
+          listaSemDuplicados.Sort();
+
+          Console.WriteLine();
+          //Mostrar na tela a lista com seus itens ordenados e sem repetir algum item
+          foreach (string item in listaSemDuplicados)
+          {
+            Console.WriteLine($"{item} ");
+            writer.WriteLine($"{item} ");
+          }
+        }
+      }
+      else
+      {
+        ObterOpcaoDoUsuario();
+      }
     }
 
     private static void ExcluirItemDaLista()
